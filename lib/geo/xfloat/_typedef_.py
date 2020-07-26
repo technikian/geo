@@ -1,0 +1,4 @@
+
+
+class XFloat:
+	pass
