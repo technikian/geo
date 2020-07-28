@@ -1,2 +1,2 @@
 
-from ._type_ import Tensor
+from ._type_ import Tensor, TensorMap

@@ -1,2 +1,2 @@
 
-from ._typedef_ import XInt
+from ._type_ import XInt

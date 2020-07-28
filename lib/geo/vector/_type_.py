@@ -126,13 +126,11 @@ class Vector(operators.Compare):
 		return r
 
 	# dot product
-
 	def dot(self, other):
 		# TODO
 		pass
 
 	# cross product
-
 	def cross(self, other):
 		pass
 
@@ -278,13 +276,11 @@ class VectorMap:
 		return r
 
 	# dot product
-
 	def dot(self, other):
 		# TODO
 		pass
 
 	# cross product
-
 	def cross(self, other):
 		pass
 

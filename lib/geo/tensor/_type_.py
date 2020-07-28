@@ -169,6 +169,11 @@ class Tensor(Vector):
 	def __lt__(self, other):
 		return NotImplemented
 
+	def __eq__(self, other):
+		if self.order != other.order:
+			return False
+		return Vector.__eq__(self, other)
+
 	def is_eractical(self):
 		"""all dimensions of equal length"""
 		for v in self.order:
