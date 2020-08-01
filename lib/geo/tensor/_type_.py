@@ -131,14 +131,20 @@ class Tensor(Vector):
 		self._m_Tensor_order = tuple(value)  # tuple is immutable, therefore this doesn't copy
 		self.steps = tuple((1, *value[:-1]))
 
-	def __init__(self, order, values=(), cont_t=list):
+	@classmethod
+	def from_args(cls, iterable=(), order=(-1,), cont_t=list):
+		return cls(iterable, order, cont_t)
+
+	def __init__(self, values=(), order=(-1), cont_t=list):
 		"""order (tuple of dimension lengths), (initialization) values, default (initialization value)
 		"""
 		super().__init__(values, cont_t)
 		self.order = order
 
 	def __repr__(self):
-		return f"Tensor({repr(self.order)}, {repr(self.values)})"
+		values = self.values
+		values = repr(values[:self.MAX_VALUES_FOR_REPR]) + (" ..." if len(values) >= self.MAX_VALUES_FOR_REPR else "")
+		return f"Tensor({values}, {repr(self.order)})"
 
 	def __len__(self):
 		try:
@@ -174,8 +180,9 @@ class Tensor(Vector):
 			return False
 		return Vector.__eq__(self, other)
 
-	def is_eractical(self):
-		"""all dimensions of equal length"""
+	def is_eract(self):
+		"""all dimensions of equal length
+		ie tesseract, penterract, hexeract, ..."""
 		for v in self.order:
 			if v != len(self):
 				return False

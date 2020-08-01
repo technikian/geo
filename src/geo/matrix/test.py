@@ -8,5 +8,5 @@ if __name__ == "__main__":
 m = Matrix(3, 3, tuple(randint(-100, 100) for i in range(9)))
 print(m)
 print(m.transpose().transpose())
-print(m._determinant_3())
-print(m.transpose()._determinant_3())
+print(m.determinant_3())
+print(m.transpose().determinant_3())
